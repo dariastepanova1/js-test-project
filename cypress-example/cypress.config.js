@@ -20,7 +20,7 @@ e2e: {
         },
       })
     },
-    baseUrl: 'https://example.cypress.io',
+    baseUrl: 'https://qauto.forstudy.space',
     specPattern: 'cypress/e2e/**/*.test.js',
   },
 });
