@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-describe('basic navigation to qauto site', ()=> {
-  it('should navigate to qauto site', () => {
+describe('registration for qauto site', ()=> {
+  it('should register a new user', () => {
     cy.visit('https://qauto.forstudy.space/', {auth: {username: 'guest', password: 'welcome2qauto'}})
     cy.contains('Sign In').click()
     cy.contains('Registration').click() 
