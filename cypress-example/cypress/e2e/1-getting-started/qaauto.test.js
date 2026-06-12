@@ -2,7 +2,7 @@
 
 describe('registration for qauto site', ()=> {
   it('should register a new user', () => {
-    cy.visit('https://qauto.forstudy.space/', {auth: {username: 'guest', password: 'welcome2qauto'}})
+    cy.visit('', {auth: {username: 'guest', password: 'welcome2qauto'}})
     cy.contains('Sign In').click()
     cy.contains('Registration').click() 
     cy.get('#signupName').type('testusername')
