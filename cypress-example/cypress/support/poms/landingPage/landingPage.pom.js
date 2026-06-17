@@ -8,18 +8,6 @@ export class LandingPage {
 
   loginDialog = new LoginDialog();
 
-  get singUpButton() {
-    return cy.contains("button", "Sign Up");
-  }
-
-  get guestSignInButton() {
-    return cy.contains("button", "Guest log in");
-  }
-
-  get signInButton() {
-    return cy.contains("button", "Sign In");
-  }
-
   clickSignIn() {
     this.selectors.signInButton().click();
     return this.loginDialog;
