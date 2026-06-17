@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  allowCypressEnv: false,  
+  allowCypressEnv: false,
   retries: {
     runMode: 1,
     openMode: 0,
@@ -10,17 +10,17 @@ module.exports = defineConfig({
   viewportHeight: 720,
   viewportWidth: 1080,
 
-e2e: {
+  e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-       on('task', {
+      on("task", {
         log(message) {
-          console.log(message)
-          return null
+          console.log(message);
+          return null;
         },
-      })
+      });
     },
-    baseUrl: 'https://qauto.forstudy.space',
-    specPattern: 'cypress/e2e/**/*.test.js',
+    baseUrl: "https://qauto.forstudy.space",
+    specPattern: "cypress/e2e/**/*.test.js",
   },
 });
