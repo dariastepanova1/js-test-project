@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://qauto2.forstudy.space",
+  "env": {
+    "defaultUserCreds": {
+      "username": "emailjohn+2@gmail.com",
+      "password": "Qwer!123"
+    }
+  }
+}
