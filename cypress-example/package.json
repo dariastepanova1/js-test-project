@@ -14,9 +14,7 @@
     "cypress:run:chrome:dev:headed": "cypress run --browser chrome --headed --env TEST_ENV=dev",
     "cypress:run:chrome:prod:headed": "cypress run --browser chrome --headed --env TEST_ENV=prod",
     "cypress:run:hw21:prod": "cypress run --browser chrome --headed --env TEST_ENV=prod --spec \"cypress/e2e/qaauto-hw21.test.js\"",
-    "cypress:run:hw21:dev": "cypress run --browser chrome --headed --env TEST_ENV=dev --spec \"cypress/e2e/qaauto-hw21.test.js\"",
-    "merge-reports": "mochawesome-merge cypress/reports/.jsons/*.json > cypress/reports/final-report.json",
-    "generate-report": "npx marge cypress/reports/final-report.json -o cypress/reports/html"
+    "cypress:run:hw21:dev": "cypress run --browser chrome --headed --env TEST_ENV=dev --spec \"cypress/e2e/qaauto-hw21.test.js\""
   },
   "dependencies": {
     "cypress": "^15.17.0"

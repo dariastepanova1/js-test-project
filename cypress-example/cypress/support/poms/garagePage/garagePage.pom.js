@@ -2,8 +2,11 @@ export class GaragePage {
   selectors = {
     addCarButton: () => cy.contains("button", "Add car"),
     addFuelExpenseButton: () => cy.contains("button", "Add fuel expense"),
-    editCarButton: () => cy.get('[class="icon icon-edit"]'),
     successAlert: () => cy.get('div[class*="alert-success"] p'),
+
+    carItem: '[class="car-item"]',
+    carName: '[class="car_name"]',
+    editIcon: '[class="icon icon-edit"]',
   };
 
   clickAddCar() {
@@ -14,8 +17,13 @@ export class GaragePage {
     this.selectors.addFuelExpenseButton().click();
   }
 
-  clickEditCar() {
-    this.selectors.editCarButton().first().click();
+  clickEditCar(brand, model) {
+    const carName = `${brand} ${model}`.trim();
+
+    cy.contains(this.selectors.carItem, carName)
+      .within(() => {
+        cy.get(this.selectors.editIcon).click();
+      });
   }
 
   checkAlertMessage(text) {

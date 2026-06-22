@@ -16,15 +16,12 @@ const addFuelExpenseDialog = new AddFuelExpenseDialog();
 const editCarDialog = new EditCarDialog();
 const leftNavBar = new LeftNavBar();
 const expenseMileage = 100;
+const carBrand = "BMW";
+const carModel = "X5";
 
-describe.only("Add Car Tests", () => {
+describe("Add Car Tests", () => {
   beforeEach(() => {
-    cy.visit(Cypress.config().baseUrl, {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
+    cy.visit(Cypress.config().baseUrl),
     cy.env(["defaultUserCreds"]).then(({ defaultUserCreds }) => {
       const loginDialog = landingPage.clickSignIn();
       landingPage.loginDialog.executeLogin(
@@ -35,21 +32,21 @@ describe.only("Add Car Tests", () => {
   });
 
   afterEach(() => {
-    garagePage.clickEditCar();
+    garagePage.clickEditCar(carBrand, carModel);
     editCarDialog.removeCar();
   });
 
   it("Check add car", () => {
     garagePage.clickAddCar();
-    addCarDialog.selectCarBrandByText("BMW");
-    addCarDialog.selectCarModelByText("X5");
+    addCarDialog.selectCarBrandByText(carBrand);
+    addCarDialog.selectCarModelByText(carModel);
     addCarDialog.fillMileage(expenseMileage);
     addCarDialog.clickAdd();
     garagePage.checkAlertMessage("Car added");
   });
 
   it("Check add expenses", () => {
-    addCarDialog.addCar("Audi", "Q7", expenseMileage);
+    addCarDialog.addCar(carBrand, carModel, expenseMileage);
     garagePage.clickAddFuelExpenses();
     addFuelExpenseDialog.selectors
       .expenseMileage()

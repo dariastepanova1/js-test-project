@@ -12,7 +12,13 @@ const getConfig = (env) => {
 };
 
 module.exports = defineConfig({
-  allowCypressEnv: true,
+  allowCypressEnv: false,
+  expose: {
+    basicAuth: {
+      username: "guest",
+      password: "welcome2qauto",
+    },
+  },
   retries: {
     runMode: 1,
     openMode: 0,
@@ -31,6 +37,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      require("cypress-mochawesome-reporter/plugin")(on);
       on("task", {
         log(message) {
           console.log(message);
