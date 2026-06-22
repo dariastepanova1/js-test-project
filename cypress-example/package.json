@@ -10,9 +10,16 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:run:chrome": "cypress run --browser chrome",
-    "cypress:run:headed": "cypress run --browser chrome --headed"
+    "cypress:run:headed": "cypress run --browser chrome --headed",
+    "cypress:run:chrome:dev:headed": "cypress run --browser chrome --headed --env TEST_ENV=dev",
+    "cypress:run:chrome:prod:headed": "cypress run --browser chrome --headed --env TEST_ENV=prod",
+    "cypress:run:hw21:prod": "cypress run --browser chrome --headed --env TEST_ENV=prod --spec \"cypress/e2e/qaauto-hw21.test.js\"",
+    "cypress:run:hw21:dev": "cypress run --browser chrome --headed --env TEST_ENV=dev --spec \"cypress/e2e/qaauto-hw21.test.js\""
   },
   "dependencies": {
     "cypress": "^15.17.0"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^4.0.2"
   }
 }
