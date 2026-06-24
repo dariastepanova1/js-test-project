@@ -20,6 +20,13 @@ describe("Add Car and Fuel expenses mixed UI and API tests", () => {
     cy.env(["defaultUserCreds"]).then(({ defaultUserCreds }) => {
       cy.login(defaultUserCreds.username, defaultUserCreds.password);
     });
+    cy.intercept("POST", "/api/cars").as("createCar");
+    addCarDialog.addCar(carBrand, carModel, expenseMileage);
+
+    cy.wait("@createCar").then(({ response }) => {
+      expect(response.statusCode).to.eq(201);
+      cy.wrap(response.body.data.id).as("carId");
+    });
   });
 
   afterEach(() => {
@@ -29,14 +36,6 @@ describe("Add Car and Fuel expenses mixed UI and API tests", () => {
   });
 
   it("Check add car", () => {
-    cy.intercept("POST", "/api/cars").as("createCar");
-    addCarDialog.addCar(carBrand, carModel, expenseMileage);
-
-    cy.wait("@createCar").then(({ response }) => {
-      expect(response.statusCode).to.eq(201);
-      cy.wrap(response.body.data.id).as("carId");
-    });
-
     cy.get("@carId").then((carId) => {
       cy.request("GET", "/api/cars").then((res) => {
         expect(res.status).to.eq(200);
@@ -54,14 +53,6 @@ describe("Add Car and Fuel expenses mixed UI and API tests", () => {
     const liters = 10;
     const expenses = 100;
     const newExpenseMileage = expenseMileage + 1;
-
-    cy.intercept("POST", "/api/cars").as("createCar");
-    addCarDialog.addCar(carBrand, carModel, expenseMileage);
-
-    cy.wait("@createCar").then(({ response }) => {
-      expect(response.statusCode).to.eq(201);
-      cy.wrap(response.body.data.id).as("carId");
-    });
 
     cy.get("@carId").then((carId) => {
       cy.createExpense(carId, newExpenseMileage, liters, expenses).then(
