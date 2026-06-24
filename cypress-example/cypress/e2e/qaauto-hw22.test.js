@@ -14,7 +14,7 @@ const expenseMileage = 100;
 const carBrand = "BMW";
 const carModel = "X5";
 
-describe("Add Car Tests", () => {
+describe("Add Car and Fuel expenses mixed UI and API tests", () => {
   beforeEach(() => {
     cy.visit(Cypress.config().baseUrl);
     cy.env(["defaultUserCreds"]).then(({ defaultUserCreds }) => {
