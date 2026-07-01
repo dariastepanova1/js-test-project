@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe.only("Registration fields validation", () => {
+test.describe("Registration fields validation", () => {
   let firstNameInput;
   let lastNameInput;
   let error;
