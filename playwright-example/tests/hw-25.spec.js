@@ -7,7 +7,7 @@ let landingPage;
 /** @type {RegistrationDialog} */
 let registrationDialog;
 
-test.describe.only("Registration form validation tests", () => {
+test.describe("Registration form validation tests", () => {
   test.beforeEach(async ({ page }) => {
     landingPage = new LandingPage(page);
     registrationDialog = new RegistrationDialog(page);
