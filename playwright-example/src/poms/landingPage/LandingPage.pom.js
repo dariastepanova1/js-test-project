@@ -6,6 +6,10 @@ export class LandingPage extends BasePage {
       name: "Sign up",
       exact: true,
     }),
+    signInButton: this._page.getByRole("button", {
+      name: "Sign In",
+      exact: true,
+    }),
   };
 
   constructor(page) {
@@ -14,5 +18,9 @@ export class LandingPage extends BasePage {
 
   async clickSignUpButton() {
     await this.selectors.signUpButton.click();
+  }
+
+  async clickSignInButton() {
+    await this.selectors.signInButton.click();
   }
 }
