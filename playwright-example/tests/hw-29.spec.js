@@ -1,10 +1,9 @@
 import { test, expect } from "../fixtures/userGarage.fixtures.js";
 
-import { LeftNavBar, ProfilePage } from "../src";
+import { ProfilePage } from "../src";
 
 test("User profile displays mocked name", async ({ page }) => {
   const profilePage = new ProfilePage(page);
-  const leftNavBar = new LeftNavBar(page);
 
   await page.route("**/api/users/profile", async (route) => {
     await route.fulfill({
