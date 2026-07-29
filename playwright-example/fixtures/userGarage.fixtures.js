@@ -10,7 +10,7 @@ export const test = base.extend({
 
   apiContext: async ({ playwright }, use) => {
     const api = await playwright.request.newContext({
-      baseURL: "https://qauto.forstudy.space",
+      baseURL: process.env.BASE_URL,
     });
 
     await use(api);
