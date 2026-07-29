@@ -46,12 +46,21 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      testMatch: /.*\.setup\.js/,
+    },
+    {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
     {
       name: "Google Chrome",
-      use: { ...devices["Desktop Chrome"], channel: "chrome" }, // or 'chrome-beta'
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: "chrome",
+        storageState: "playwright-report/user.json",
+      },
+      dependencies: ["setup"],
     },
     {
       name: "firefox",
@@ -62,7 +71,6 @@ export default defineConfig({
       name: "webkit",
       use: { ...devices["Desktop Safari"] },
     },
-
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
