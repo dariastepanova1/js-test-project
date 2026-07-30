@@ -7,6 +7,16 @@ export const test = base.extend({
     await garagePage.open();
     await use(garagePage);
   },
+
+  apiContext: async ({ playwright }, use) => {
+    const api = await playwright.request.newContext({
+      baseURL: process.env.BASE_URL,
+    });
+
+    await use(api);
+
+    await api.dispose();
+  },
 });
 
 export { expect };
