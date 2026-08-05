@@ -12,7 +12,7 @@
     "playwright:test:headed:chrome:qa1:28": "cross-env TEST_ENV=qauto1 playwright test tests/hw-28.spec.js --headed --project='Google Chrome'",
     "playwright:test:headed:chrome:qa1:29": "cross-env TEST_ENV=qauto1 playwright test tests/hw-29.spec.js --headed --project='Google Chrome'",
     "playwright:test:headless:firefox": "playwright test --project='Firefox'",
-    "playwright:test:headless:chrome": "playwright test --project='Google Chrome'"
+    "playwright:test:headless:chrome:qa1": "cross-env TEST_ENV=qauto1 playwright test --project=\"Google Chrome\""
   },
   "keywords": [],
   "author": "",
