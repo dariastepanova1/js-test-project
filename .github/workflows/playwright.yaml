@@ -28,6 +28,9 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install
 
+      - name: Install Google Chrome
+        run: npx playwright install chrome
+
       - name: Run Playwright tests
         run: npm run playwright:test:headless:chrome:qa1
 
