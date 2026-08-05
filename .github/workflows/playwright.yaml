@@ -32,7 +32,7 @@ jobs:
         run: npx playwright install chrome
 
       - name: Run Playwright tests
-        run: npm run playwright:test:headless:chrome:qa1
+        run: npm run playwright:test:headless:chrome:qa1-- --workers=4
 
       - name: Upload Playwright artifacts
         if: always()
