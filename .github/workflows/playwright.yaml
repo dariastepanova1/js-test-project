@@ -8,7 +8,7 @@ on:
 
 jobs:
   playwright:
-    name: Playwright QA1 Chrome
+    name: Playwright Chrome Headless
     runs-on: ubuntu-latest
 
     container:
@@ -25,8 +25,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install browsers
+      - name: Install Playwright browsers
         run: npx playwright install
 
       - name: Run Playwright tests
-        run: npm run playwright:test:headed:chrome:qa1
+        run: npm run playwright:test:headless:chrome
+
+      - name: Upload Playwright artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            playwright-example/playwright-report
+            playwright-example/test-results
+          retention-days: 7
