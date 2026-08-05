@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: mcr.microsoft.com/playwright:v1.55.0-noble
+      image: mcr.microsoft.com/playwright:v1.61.1-noble
 
     defaults:
       run:
@@ -25,8 +25,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Google Chrome
-        run: npx playwright install chrome
+      - name: Install Playwright browsers
+        run: npx playwright install
 
       - name: Run Playwright tests
         run: npm run playwright:test:headless:chrome:qa1
