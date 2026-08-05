@@ -8,13 +8,13 @@ on:
 
 jobs:
   playwright:
-    name: Run Playwright Tests
+    name: Playwright QA1 Chrome
     runs-on: ubuntu-latest
 
     container:
       image: mcr.microsoft.com/playwright:v1.55.0-noble
 
-defaults:
+    defaults:
       run:
         working-directory: playwright-example
 
